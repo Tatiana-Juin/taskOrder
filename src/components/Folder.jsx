@@ -7,10 +7,9 @@ export default function Folder() {
     <div>
 
       {/* AFFICHE LES DOSSIER  */}
-        
             {data.map( (dataFolder) =>
                
-                <button key={dataFolder.idFolder} className="mt-4">{dataFolder.nameFolder}</button>
+                <button key={dataFolder.idFolder} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer ">{dataFolder.nameFolder}</button>
              )}
         
         
