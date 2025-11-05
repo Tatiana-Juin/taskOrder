@@ -1,6 +1,6 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import data from './data/data'
+// import data from './data/data'
 import Folder from './components/Folder'
 
 function App() {
