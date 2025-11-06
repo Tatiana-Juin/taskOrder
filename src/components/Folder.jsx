@@ -12,20 +12,27 @@ export default function Folder() {
   const handleAddFolder = ()=>{
     
     // CREATION DU NOUVEAU DOSSIER
+    const addFolder={
+      idFolder:Date.now(),
+      nameFolder:newFolder,
+      todos:[]
+    }
+    
+    setData([...data,addFolder]);
   }
 
   return (
     <>
       <div>
-
-        {/* AFFICHE LES DOSSIER  */}
-              {data.map( (dataFolder) =>
-                
-                  <button key={dataFolder.idFolder} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer ">{dataFolder.nameFolder}</button>
-              )}
+          <input type="text" className="border border-black" value={newFolder} onChange={(e) =>setNewFolder(e.target.value)} placeholder="Nom du dossier" />
+                {/* BOUTON POUR AJOUTER UN DOSSIER  */}
+          <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> + dossier</button>
+          {/* AFFICHE LES DOSSIER  */}
+            {datas.map( (dataFolder) =>
               
-              {/* BOUTON POUR AJOUTER UN DOSSIER  */}
-              <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> + dossier</button>
+                <button key={dataFolder.idFolder} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer ">{dataFolder.nameFolder}</button>
+            )}
+              
 
       </div>
     </>
