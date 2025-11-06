@@ -36,6 +36,15 @@ export default function Folder() {
           {/* BOUTON POUR AJOUTER UN DOSSIER  */}
           <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleFolderClick}> + dossier</button>
 
+          {/* Condition pour afficher un input et un bouton annuler et ajouter  */}
+          {addingFolderId === true && (
+            <div className="">
+                <input type="text" className="border border-black" value={newFolder} onChange={(e) =>setNewFolder(e.target.value)} placeholder="Nom du dossier" />
+                <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> Ajouter</button>
+                <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>setAddingFolderId(false)}> Annuler</button>
+            </div>
+          )}
+          
           {/* AFFICHE LES DOSSIER  */}
             {datas.map( (dataFolder) =>
               
