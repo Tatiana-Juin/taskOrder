@@ -21,6 +21,8 @@ export default function Folder() {
     }
     
     setData([...datas,addFolder]);
+    setAddingFolderId(false)
+    setNewFolder("");
   }
 
   // FONCTION POUR SWITCHER ENTRE FALSE ET TRUE 
@@ -32,25 +34,24 @@ export default function Folder() {
   return (
     <>
       <div>
-          {/* <input type="text" className="border border-black" value={newFolder} onChange={(e) =>setNewFolder(e.target.value)} placeholder="Nom du dossier" /> */}
-          {/* BOUTON POUR AJOUTER UN DOSSIER  */}
-          <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleFolderClick}> + dossier</button>
-
-          {/* Condition pour afficher un input et un bouton annuler et ajouter  */}
-          {addingFolderId === true && (
-            <div className="">
-                <input type="text" className="border border-black" value={newFolder} onChange={(e) =>setNewFolder(e.target.value)} placeholder="Nom du dossier" />
-                <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> Ajouter</button>
-                <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>setAddingFolderId(false)}> Annuler</button>
-            </div>
-          )}
           
+         
           {/* AFFICHE LES DOSSIER  */}
             {datas.map( (dataFolder) =>
               
                 <button key={dataFolder.idFolder} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer ">{dataFolder.nameFolder}</button>
             )}
-              
+            {/* BOUTON POUR FAIRE APPARAITRE L'INPUT QUI PERMET D'AJOUTER UN INPUT */}
+             <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleFolderClick}> + dossier</button>
+             
+             {/* CONDITION POUR FAIRE APPARAITRE L'INPUT ET SES BOUTON  */}
+              {addingFolderId === true && (
+                <div className="">
+                    <input type="text" className="border border-black" value={newFolder} onChange={(e) =>setNewFolder(e.target.value)} placeholder="Nom du dossier" />
+                    <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> Ajouter</button>
+                    <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>setAddingFolderId(false)}> Annuler</button>
+                </div>
+              )}
 
       </div>
     </>
