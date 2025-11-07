@@ -1,7 +1,7 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-// import data from './data/data'
-import Folder from './components/Folder'
+
+import AppRoute from './route/AppRoute'
 
 function App() {
   
@@ -12,7 +12,7 @@ function App() {
           TaskOrder 
         </h1>
 
-        <Folder />
+        <AppRoute />
 
         
     </>
