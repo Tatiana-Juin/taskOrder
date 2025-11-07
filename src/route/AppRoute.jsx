@@ -1,6 +1,6 @@
 import{Routes,Route} from 'react-router-dom'
 import Folder from '../components/Folder'
-import Todos from '../components/Todos'
+import Todos from '../pages/Todos'
 
 export default function AppRoute() {
   return (
