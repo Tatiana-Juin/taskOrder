@@ -12,7 +12,7 @@ export default function Todos({datas,setDatas}) {
     <div>
         {/* PERMET D'AFFICHER LES DOSSIER  */}
         <Folder datas={datas} setDatas={setDatas} />
-        <h2 className="text-center"> Dossier  </h2>
+        <h2 className="text-center">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
         {selectedFolder ? (
           selectedFolder.todos.map((todo) =>(
            <div key={todo.idTodo}>
