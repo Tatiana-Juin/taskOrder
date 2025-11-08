@@ -2,10 +2,10 @@ import { useState } from "react"
 import data from "../data/data"
 import { Link } from "react-router-dom";
 
-export default function Folder() {
+export default function Folder({datas,setDatas}) {
 
   // POUR INITIALISER LES DONNES AVEC USE STATE 
-  const [datas,setData] = useState(data);
+  // const [datas,setDatas] = useState(data);
   // POUR RECUPERER CE QUE SAISIE L'UTILISATEUR POUR UN NOUVEAU DOSSIER 
   const [newFolder,setNewFolder] = useState("");
   // POUR SWITCHER ENTRE VOIR UN INPUT ET NE PAS VOIR INPUT POUR AJOUTER DU DOSSIER 
@@ -16,12 +16,12 @@ export default function Folder() {
     
     // CREATION DU NOUVEAU DOSSIER
     const addFolder={
-      idFolder:Date.now(),
+      idFolder:Date.now().toString(),
       nameFolder:newFolder,
       todos:[]
     }
     
-    setData([...datas,addFolder]);
+    setDatas([...datas,addFolder]);
     setAddingFolderId(false)
     setNewFolder("");
   }
