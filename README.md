@@ -1,16 +1,17 @@
-# React + Vite
+# Projet taskOrder
+## Présentation 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Je suis en train de créer un projet qui est une **todo list** avec **React et Tailwind CSS** 
 
-Currently, two official plugins are available:
+## Fonctionnalités 
+- Pour les dossiers 
+    - Ajout d'un dossiser 
+    - Modification du nom du dossier 
+    - suppression du dossier 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Pour les taches 
+    - Ajout d'une tache 
+    - modification du nom , de la date et du dossier 
+    - suppression d'une tache 
+    - cocher une tache comme etant faite 
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

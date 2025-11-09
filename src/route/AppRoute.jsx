@@ -5,11 +5,13 @@ import { useState } from 'react'
 import data from '../data/data'
 export default function AppRoute() {
 
+  // POUR QUE LES DONNES SOIT DYNAMIQUE 
   const [datas, setDatas] = useState(data);
 
   return (
     <>
         <Routes>
+          {/* Cchemlin principale  */}
             <Route path="/" element={<Folder  datas={datas} setDatas={setDatas}  />} />
 
             {/* ROUTE DYNAMIQUE  */}

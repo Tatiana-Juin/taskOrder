@@ -54,9 +54,11 @@ export default function Folder({datas,setDatas}) {
 
              {/* CONDITION POUR FAIRE APPARAITRE L'INPUT ET SES BOUTON  */}
               {addingFolderId === true && (
-                <div className="">
+                <div >
                     <input type="text" className="border border-black" value={newFolder} onChange={(e) =>setNewFolder(e.target.value)} placeholder="Nom du dossier" />
+
                     <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> Ajouter</button>
+
                     <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>setAddingFolderId(false)}> Annuler</button>
                 </div>
               )}
