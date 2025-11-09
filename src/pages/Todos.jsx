@@ -15,6 +15,9 @@ export default function Todos({datas,setDatas}) {
 
         {/* POUR AFFICHER LE TITRE DU DOSSIER S'IL EXISTE */}
         <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
+
+        {/* BOUTON POUR AJOUTER UNE TACHE  */}
+        <button className="m-2 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer">Ajout d'une taches </button>
         
         {/* POUR AFFICHER LES TACHE D'UN DOSSIER  */}
         {selectedFolder ? (
