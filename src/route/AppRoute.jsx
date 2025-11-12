@@ -11,7 +11,7 @@ export default function AppRoute() {
   return (
     <>
         <Routes>
-          {/* Cchemlin principale  */}
+          {/* chemlin principale  */}
             <Route path="/" element={<Folder  datas={datas} setDatas={setDatas}  />} />
 
             {/* ROUTE DYNAMIQUE  */}

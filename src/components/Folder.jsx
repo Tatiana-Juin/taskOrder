@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function Folder({datas,setDatas}) {
 
-  // POUR INITIALISER LES DONNES AVEC USE STATE 
-  // const [datas,setDatas] = useState(data);
   // POUR RECUPERER CE QUE SAISIE L'UTILISATEUR POUR UN NOUVEAU DOSSIER 
   const [newFolder,setNewFolder] = useState("");
   // POUR SWITCHER ENTRE VOIR UN INPUT ET NE PAS VOIR INPUT POUR AJOUTER DU DOSSIER 
@@ -29,7 +27,7 @@ export default function Folder({datas,setDatas}) {
   // FONCTION POUR SWITCHER ENTRE FALSE ET TRUE 
   const handleFolderClick = ()=>{
     setAddingFolderId(true);
-    // console.log(addingFolderId);
+  
   } 
 
   return (

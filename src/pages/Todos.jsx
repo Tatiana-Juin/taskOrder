@@ -1,6 +1,6 @@
 import Folder from "../components/Folder"
 import { useParams } from 'react-router-dom'
-import { useState } from "react";
+import AddTask from "../components/AddTask";
 
 export default function Todos({datas,setDatas}) {
  
@@ -17,13 +17,13 @@ export default function Todos({datas,setDatas}) {
         <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
 
         {/* BOUTON POUR AJOUTER UNE TACHE  */}
-        <button className="m-2 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer">Ajout d'une taches </button>
+        <AddTask folderId={folderId} datas={datas} setDatas={setDatas}  />
         
         {/* POUR AFFICHER LES TACHE D'UN DOSSIER  */}
         {selectedFolder ? (
           selectedFolder.todos.map((todo) =>(
 
-           <div key={todo.idTodo} className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl p-4 my-3  ">
+           <div key={todo.idTodo} className="flex items-center justify-between  border border-gray-200 rounded-xl p-4 my-3  ">
               {/* affiche les elements */}
               <div className="flex items-center gap-3">
                   <input type="checkbox" className="w-5 h-5 cursor-pointer accent-green-500"/>
