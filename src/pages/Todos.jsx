@@ -1,12 +1,17 @@
 import Folder from "../components/Folder"
 import { useParams } from 'react-router-dom'
 import AddTask from "../components/AddTask";
+import { useState } from "react";
 
 export default function Todos({datas,setDatas}) {
  
 
   const {folderId} = useParams();
   const selectedFolder = datas.find(folder => folder.idFolder === folderId);
+  // Pour recuperer la tache 
+   const [newTask,setNewTask] = useState("");
+    // Pour recuperer la date
+    const [newDate,setNewDate] = useState("")
 
   return (
     <div>
@@ -17,7 +22,7 @@ export default function Todos({datas,setDatas}) {
         <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
 
         {/* BOUTON POUR AJOUTER UNE TACHE  */}
-        <AddTask folderId={folderId} datas={datas} setDatas={setDatas}  />
+        <AddTask folderId={folderId} datas={datas} setDatas={setDatas} newTask={newTask} setNewTask={setNewTask} newDate={newDate} setNewDate={setNewDate}  />
         
         {/* POUR AFFICHER LES TACHE D'UN DOSSIER  */}
         {selectedFolder ? (

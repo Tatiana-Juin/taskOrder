@@ -1,20 +1,22 @@
 import { useState } from "react"
 
-export default function AddTask({folderId,datas,setDatas}) {
+export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newDate,setNewDate}) {
 
     // POUR FAIRE LES SWITCH ENTRE AFFICHER ET NE PAS AFFICHER 
     const [addingTodos,setAddingTodos] = useState(false);
     // POUR RECUPERER CE QUI EST SAISIE PAR L'UTILISATEUR 
-    const [newTask,setNewTask] = useState("");
+    // const [newTask,setNewTask] = useState("");
     // Pour recuperer la date
-    const [newDate,setNewDate] = useState("");
+    // const [newDate,setNewDate] = useState("");
 
     // FONCTION POUR AJOUTER UNE TACHES 
     const handleAddTask = () =>{
+        // Pour formater la date en francais et si on entre rien alors on prend la date aujourd'hui 
+        const formattedDate = newDate ? new Date(newDate).toLocaleDateString("fr-FR") : new Date().toLocaleDateString("fr-FR"); 
         const newTodo = {
             idTodo : Date.now(),
             text:newTask,
-            dateTodo:newDate,
+            dateTodo:formattedDate,
             completed:false
         }
 
@@ -24,13 +26,16 @@ export default function AddTask({folderId,datas,setDatas}) {
                 return folder;
             }
 
+            
+
+            // else créer un nouveau dossier avec les ancienne valeur et les nouvelles 
             return{
                 ...folder,
                 todos:[...folder.todos,newTodo]
             }
         })
 
-        // MET A JOURS LES DONNES 
+        // MET A JOURS LES DONNES ET RINITIALISE LES ANCIENNE DONNES
         setDatas(newData);
         setNewTask("")
         setNewDate("")
