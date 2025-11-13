@@ -7,6 +7,7 @@ export default function Todos({datas,setDatas}) {
  
 
   const {folderId} = useParams();
+  // Pour recuperer id du dossier 
   const selectedFolder = datas.find(folder => folder.idFolder === folderId);
   // Pour recuperer la tache 
    const [newTask,setNewTask] = useState("");

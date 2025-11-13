@@ -4,10 +4,20 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
 
     // POUR FAIRE LES SWITCH ENTRE AFFICHER ET NE PAS AFFICHER 
     const [addingTodos,setAddingTodos] = useState(false);
+    // POUR AFFICHER LE MESSAGE ERREUR 
+    const [errorMessage,setErrorMessage] = useState("");
     
 
     // FONCTION POUR AJOUTER UNE TACHES 
     const handleAddTask = () =>{
+
+        // SI LE CHAMPS EST VIDE 
+         if(newTask==""){
+           setErrorMessage("Erreur tu doit saisir du texte pour ajouter une taches")
+            return;
+        }
+
+        setErrorMessage("");
         // Pour formater la date en francais et si on entre rien alors on prend la date aujourd'hui 
         const formattedDate = newDate ? new Date(newDate).toLocaleDateString("fr-FR") : new Date().toLocaleDateString("fr-FR"); 
         const newTodo = {
@@ -22,8 +32,6 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
             if(folder.idFolder != folderId ){
                 return folder;
             }
-
-            
 
             // else créer un nouveau dossier avec les ancienne valeur et les nouvelles 
             return{
@@ -63,9 +71,14 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
                 <button onClick={handleAddTask} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer">
                     Ajouter
                 </button>
-                <button onClick={() => setAddingTodos(false)} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer">
+                <button onClick={() =>{ setAddingTodos(false),setErrorMessage("")}} className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer">
                     Annuler
                 </button>
+
+                {/* MESSAGE ERREUR  */}
+                {errorMessage && (
+                    <p className="text-red-500 mt-2 font-medium">{errorMessage}</p>
+                )}
             </div>
         )}
         
