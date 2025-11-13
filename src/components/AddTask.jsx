@@ -4,10 +4,7 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
 
     // POUR FAIRE LES SWITCH ENTRE AFFICHER ET NE PAS AFFICHER 
     const [addingTodos,setAddingTodos] = useState(false);
-    // POUR RECUPERER CE QUI EST SAISIE PAR L'UTILISATEUR 
-    // const [newTask,setNewTask] = useState("");
-    // Pour recuperer la date
-    // const [newDate,setNewDate] = useState("");
+    
 
     // FONCTION POUR AJOUTER UNE TACHES 
     const handleAddTask = () =>{
