@@ -1,11 +1,11 @@
 import Folder from "../components/Folder"
 import { useParams } from 'react-router-dom'
 import AddTask from "../components/AddTask";
+import UpdateTask from "../components/UpdateTask";
 import { useState } from "react";
 
 export default function Todos({datas,setDatas}) {
  
-
   const {folderId} = useParams();
   // Pour recuperer id du dossier 
   const selectedFolder = datas.find(folder => folder.idFolder === folderId);
@@ -13,6 +13,8 @@ export default function Todos({datas,setDatas}) {
    const [newTask,setNewTask] = useState("");
     // Pour recuperer la date
     const [newDate,setNewDate] = useState("")
+
+    const [taskToEdit,setTaskToEdit] = useState(false);
 
   return (
     <div>
@@ -24,6 +26,17 @@ export default function Todos({datas,setDatas}) {
 
         {/* BOUTON POUR AJOUTER UNE TACHE  */}
         <AddTask folderId={folderId} datas={datas} setDatas={setDatas} newTask={newTask} setNewTask={setNewTask} newDate={newDate} setNewDate={setNewDate}  />
+
+        {/* POUR APPELLER LE COMPOSANT POUR LA MODIFICATION */}
+        {taskToEdit &&(
+          <UpdateTask
+              folderId={folderId}
+              datas={datas}
+              setDatas={setDatas}
+              taskToEdit={taskToEdit}
+              setTaskToEdit={setTaskToEdit}
+          />
+        )}
         
         {/* POUR AFFICHER LES TACHE D'UN DOSSIER  */}
         {selectedFolder ? (
@@ -38,7 +51,7 @@ export default function Todos({datas,setDatas}) {
               </div>
               
               <div className="flex gap-3">
-                  <button className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-blue-100 hover:bg-blue-200 transition-all duration-150">Modifier</button>
+                  <button className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-blue-100 hover:bg-blue-200 transition-all duration-150" onClick={()=>setTaskToEdit(todo)}>Modifier</button>
                   <button  className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-red-100 hover:bg-red-200 transition-all duration-150">Supprimer</button>
               </div>
 
