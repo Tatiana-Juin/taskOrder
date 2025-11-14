@@ -1,10 +1,13 @@
 import { useState } from "react";
 
+
 export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskToEdit}) {
     // RECUPERE  LE TEXTE DE MANIERE DYNAMIQUE 
     const [updateText, setUpdateText] = useState(taskToEdit.text);
     // reformate pour input date;
     const [updateDateTodo,setUpdateDateTodo] = useState(new Date(taskToEdit.dateTodo.split("/").reverse().join("-")).toISOString().split("T")[0]) 
+
+    
    
     // FONCTION POUR MODIFIER UNE TACHE 
     const handleUpdateTask = (idFolder,idTask)=>{

@@ -2,6 +2,7 @@ import Folder from "../components/Folder"
 import { useParams } from 'react-router-dom'
 import AddTask from "../components/AddTask";
 import UpdateTask from "../components/UpdateTask";
+import { useEffect } from "react";
 import { useState } from "react";
 
 export default function Todos({datas,setDatas}) {
@@ -15,6 +16,11 @@ export default function Todos({datas,setDatas}) {
     const [newDate,setNewDate] = useState("")
 
     const [taskToEdit,setTaskToEdit] = useState(false);
+
+    // Pour fermer l'update quand on change de dossier 
+    useEffect(() => {
+      setTaskToEdit(false);
+    }, [folderId]);
 
   return (
     <div>
