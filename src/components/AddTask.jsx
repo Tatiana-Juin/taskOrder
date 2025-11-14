@@ -51,7 +51,7 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
   return (
     <div>
         {!addingTodos ?(
-            <button className="m-2 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={() =>setAddingTodos(true)}>Ajout d'une taches </button>
+            <button className="m-2 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={() =>setAddingTodos(true)}>Ajout d'une tache </button>
         ):(
             <div>
                 <input 
