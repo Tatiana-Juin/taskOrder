@@ -2,7 +2,7 @@ import { useState } from "react"
 import data from "../data/data"
 import { Link } from "react-router-dom";
 
-export default function Folder({datas,setDatas}) {
+export default function Folder({datas,setDatas,setTaskToEdit}) {
 
   // POUR RECUPERER CE QUE SAISIE L'UTILISATEUR POUR UN NOUVEAU DOSSIER 
   const [newFolder,setNewFolder] = useState("");
@@ -48,7 +48,7 @@ export default function Folder({datas,setDatas}) {
             )}
 
             {/* BOUTON POUR FAIRE APPARAITRE L'INPUT QUI PERMET D'AJOUTER UN INPUT */}
-             <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleFolderClick}> + Ajout d'un dossier</button>
+             <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={() =>{handleFolderClick(),setTaskToEdit(false)}}> + Ajout d'un dossier</button>
 
              {/* CONDITION POUR FAIRE APPARAITRE L'INPUT ET SES BOUTON  */}
               {addingFolderId === true && (

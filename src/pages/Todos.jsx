@@ -25,7 +25,7 @@ export default function Todos({datas,setDatas}) {
   return (
     <div>
         {/* PERMET D'AFFICHER LES DOSSIER  */}
-        <Folder datas={datas} setDatas={setDatas} />
+        <Folder datas={datas} setDatas={setDatas} setTaskToEdit={setTaskToEdit} />
 
         {/* POUR AFFICHER LE TITRE DU DOSSIER S'IL EXISTE */}
         <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
