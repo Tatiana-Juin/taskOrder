@@ -14,7 +14,7 @@ export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskTo
         // Reformer la date en version anglais
         const reformattedDate = updateDateTodo.split("-").reverse().join("/");
 
-        // datas recupere tout meme les dossier
+        // datas recupere les dossier et verifie si on les meme id si c'est pas le cas il retourne folder les dossier 
         const newData =datas.map(folder=>{
             if(folder.idFolder !== idFolder ){
                 return folder;

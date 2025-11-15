@@ -4,6 +4,7 @@ import AddTask from "../components/AddTask";
 import UpdateTask from "../components/UpdateTask";
 import { useEffect } from "react";
 import { useState } from "react";
+import DeleteTask from "../components/DeleteTask";
 
 export default function Todos({datas,setDatas}) {
  
@@ -16,6 +17,9 @@ export default function Todos({datas,setDatas}) {
     const [newDate,setNewDate] = useState("")
 
     const [taskToEdit,setTaskToEdit] = useState(false);
+
+    // POUR RECUPERER LES INFORMATION POUR SUPPRIMER UNE TACHES
+    const [taskToDelete,setTaskToDelete] = useState(false);
 
     // Pour fermer l'update quand on change de dossier 
     useEffect(() => {
@@ -43,6 +47,16 @@ export default function Todos({datas,setDatas}) {
               setTaskToEdit={setTaskToEdit}
           />
         )}
+
+        {taskToDelete &&(
+          <DeleteTask 
+            folderId={folderId}
+            datas={datas}
+            setDatas={setDatas}
+            taskToDelete={taskToDelete}
+            setTaskToDelete={setTaskToDelete}
+          />
+        )}
         
         {/* POUR AFFICHER LES TACHE D'UN DOSSIER  */}
         {selectedFolder ? (
@@ -58,7 +72,7 @@ export default function Todos({datas,setDatas}) {
               
               <div className="flex gap-3">
                   <button className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-blue-100 hover:bg-blue-200 transition-all duration-150" onClick={()=>setTaskToEdit(todo)}>Modifier</button>
-                  <button  className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-red-100 hover:bg-red-200 transition-all duration-150">Supprimer</button>
+                  <button  className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-red-100 hover:bg-red-200 transition-all duration-150" onClick={() => setTaskToDelete(todo)}>Supprimer</button>
               </div>
 
               
