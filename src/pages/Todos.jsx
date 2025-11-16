@@ -32,7 +32,13 @@ export default function Todos({datas,setDatas}) {
         <Folder datas={datas} setDatas={setDatas} setTaskToEdit={setTaskToEdit} />
 
         {/* POUR AFFICHER LE TITRE DU DOSSIER S'IL EXISTE */}
-        <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
+        <div className="flex justify-center ">
+            <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
+             <button className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-blue-100 hover:bg-blue-200 transition-all duration-150 mx-4" >Modifier</button>
+              <button  className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-red-100 hover:bg-red-200 transition-all duration-150" >Supprimer</button>
+        </div>
+        
+        
 
         {/* BOUTON POUR AJOUTER UNE TACHE  */}
         <AddTask folderId={folderId} datas={datas} setDatas={setDatas} newTask={newTask} setNewTask={setNewTask} newDate={newDate} setNewDate={setNewDate}  />
