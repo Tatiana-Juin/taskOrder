@@ -5,6 +5,7 @@ import UpdateTask from "../components/UpdateTask";
 import { useEffect } from "react";
 import { useState } from "react";
 import DeleteTask from "../components/DeleteTask";
+import UpdateFolder from "../components/UpdateFolder";
 
 export default function Todos({datas,setDatas}) {
  
@@ -21,6 +22,9 @@ export default function Todos({datas,setDatas}) {
     // POUR RECUPERER LES INFORMATION POUR SUPPRIMER UNE TACHES
     const [taskToDelete,setTaskToDelete] = useState(false);
 
+    // POUR FAIRE LE SWITCH POUR L'UPDATE DU DOSSIER 
+    const [folderToEdit,setFolderToEdit] = useState(false);
+
     // Pour fermer l'update quand on change de dossier 
     useEffect(() => {
       setTaskToEdit(false);
@@ -34,14 +38,26 @@ export default function Todos({datas,setDatas}) {
         {/* POUR AFFICHER LE TITRE DU DOSSIER S'IL EXISTE */}
         <div className="flex justify-center ">
             <h2 className="text-center text-lg">  {selectedFolder ? selectedFolder.nameFolder : 'introuvale'}  </h2>
-             <button className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-blue-100 hover:bg-blue-200 transition-all duration-150 mx-4" >Modifier</button>
+             <button className="text-black px-5 py-2 rounded-xl  border-gray-300 shadow-md  cursor-pointer bg-blue-100 hover:bg-blue-200  transition-all duration-150 mx-4" onClick={()=>setFolderToEdit(selectedFolder)}>Modifier</button>
               <button  className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-red-100 hover:bg-red-200 transition-all duration-150" >Supprimer</button>
         </div>
         
-        
-
+      
         {/* BOUTON POUR AJOUTER UNE TACHE  */}
+
+        {folderToEdit && (
+          <UpdateFolder
+            folderId={folderId}
+            datas={datas}
+            setDatas={setDatas}
+            folderToEdit={folderToEdit}
+            setFolderToEdit={setFolderToEdit}
+          />
+        )}
+        
         <AddTask folderId={folderId} datas={datas} setDatas={setDatas} newTask={newTask} setNewTask={setNewTask} newDate={newDate} setNewDate={setNewDate}  />
+
+        
 
         {/* POUR APPELLER LE COMPOSANT POUR LA MODIFICATION */}
         {taskToEdit &&(
@@ -63,6 +79,8 @@ export default function Todos({datas,setDatas}) {
             setTaskToDelete={setTaskToDelete}
           />
         )}
+
+
         
         {/* POUR AFFICHER LES TACHE D'UN DOSSIER  */}
         {selectedFolder ? (

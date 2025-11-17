@@ -1,13 +1,14 @@
 import { useState } from "react"
-import data from "../data/data"
 import { Link } from "react-router-dom";
+import UpdateFolder from "./UpdateFolder";
 
 export default function Folder({datas,setDatas,setTaskToEdit}) {
 
   // POUR RECUPERER CE QUE SAISIE L'UTILISATEUR POUR UN NOUVEAU DOSSIER 
   const [newFolder,setNewFolder] = useState("");
   // POUR SWITCHER ENTRE VOIR UN INPUT ET NE PAS VOIR INPUT POUR AJOUTER DU DOSSIER 
-  const[addingFolderId,setAddingFolderId] = useState(false)
+  const[addingFolderId,setAddingFolderId] = useState(false);
+  
 
   // FONCTION POUR AJOUTER UN DOSSIER 
   const handleAddFolder = ()=>{
@@ -34,7 +35,6 @@ export default function Folder({datas,setDatas,setTaskToEdit}) {
     <>
       <div>
           
-         
           {/* AFFICHE LES DOSSIER  */}
             {datas.map( (dataFolder) =>
               
@@ -62,6 +62,8 @@ export default function Folder({datas,setDatas,setTaskToEdit}) {
               )}
 
       </div>
+      
+
     </>
   )
 }
