@@ -8,11 +8,17 @@ export default function Folder({datas,setDatas,setTaskToEdit}) {
   const [newFolder,setNewFolder] = useState("");
   // POUR SWITCHER ENTRE VOIR UN INPUT ET NE PAS VOIR INPUT POUR AJOUTER DU DOSSIER 
   const[addingFolderId,setAddingFolderId] = useState(false);
+  const [errorMessage,setErrorMessage] = useState("");
   
 
   // FONCTION POUR AJOUTER UN DOSSIER 
   const handleAddFolder = ()=>{
     
+    if(newFolder==""){
+       setErrorMessage("Erreur tu doit saisir du texte pour ajouter un dossier")
+        return;
+    }
+
     // CREATION DU NOUVEAU DOSSIER
     const addFolder={
       idFolder:Date.now().toString(),
@@ -57,7 +63,11 @@ export default function Folder({datas,setDatas,setTaskToEdit}) {
 
                     <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={handleAddFolder}> Ajouter</button>
 
-                    <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>setAddingFolderId(false)}> Annuler</button>
+                    <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>{setAddingFolderId(false),setErrorMessage("")}}> Annuler</button>
+
+                     {errorMessage && (
+                      <p className="text-red-500 mt-2 font-medium">{errorMessage}</p>
+                  )}
                 </div>
               )}
 
