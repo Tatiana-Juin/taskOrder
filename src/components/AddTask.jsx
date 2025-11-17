@@ -12,7 +12,7 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
     const handleAddTask = () =>{
 
         // SI LE CHAMPS EST VIDE 
-         if(newTask==""){
+         if(newTask.trim()==""){
            setErrorMessage("Erreur tu doit saisir du texte pour ajouter une taches")
             return;
         }

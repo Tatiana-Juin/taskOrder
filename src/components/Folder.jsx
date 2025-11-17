@@ -14,10 +14,12 @@ export default function Folder({datas,setDatas,setTaskToEdit}) {
   // FONCTION POUR AJOUTER UN DOSSIER 
   const handleAddFolder = ()=>{
     
-    if(newFolder==""){
+    if(newFolder.trim()==""){
        setErrorMessage("Erreur tu doit saisir du texte pour ajouter un dossier")
         return;
     }
+
+    setErrorMessage("")
 
     // CREATION DU NOUVEAU DOSSIER
     const addFolder={
