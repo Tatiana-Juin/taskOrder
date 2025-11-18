@@ -29,10 +29,8 @@ const handleDeleteTask = () =>{
 
   return (
     <>
-        <Routes>
-             <Route path="/" element={<Home  datas={datas} setDatas={setDatas}  />} />
-        </Routes>
         
+
         <AlertDelete 
             title="Suppression d'un tache"
             message="Es-tu sur de vouloir supprimer une tache"

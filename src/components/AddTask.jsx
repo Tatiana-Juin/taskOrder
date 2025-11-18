@@ -21,10 +21,12 @@ export default function AddTask({folderId,datas,setDatas,newTask,setNewTask,newD
         // Pour formater la date en francais et si on entre rien alors on prend la date aujourd'hui 
         const formattedDate = newDate ? new Date(newDate).toLocaleDateString("fr-FR") : new Date().toLocaleDateString("fr-FR"); 
 
-        if(newDate < formattedDate){
+        // JE COMPARE LA DATE SAISIE ET LA DATE ACTUELLE POUR EMPECHER DE SAISIR UNE DATE INFERIEUR A CELLE ACTUELLE 
+        if( new Date(newDate) <  new Date() ){
             setErrorMessage("La date ne peut pas etre inferieur a celle d'aujourd'hui ")
             return;
         }
+
         setErrorMessage("");
 
         const newTodo = {
