@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import{Routes,Route} from 'react-router-dom'
 import AlertDelete from "./AlertDelete";
 export default function DeleteTask({folderId,datas,setDatas,taskToDelete,setTaskToDelete}) {
 
@@ -27,11 +28,19 @@ const handleDeleteTask = () =>{
 }
 
   return (
-    <AlertDelete 
-        title="Suppression d'un tache"
-        message="Es-tu sur de vouloir supprimer une tache"
-        onCancel={()=>setTaskToDelete(false)}
-        onConfirm={handleDeleteTask}
-    />
+    <>
+        <Routes>
+             <Route path="/" element={<Home  datas={datas} setDatas={setDatas}  />} />
+        </Routes>
+        
+        <AlertDelete 
+            title="Suppression d'un tache"
+            message="Es-tu sur de vouloir supprimer une tache"
+            onCancel={()=>setTaskToDelete(false)}
+            onConfirm={handleDeleteTask}
+        />
+
+        
+    </>
   );
 }
