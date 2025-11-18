@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom";
 import UpdateFolder from "./UpdateFolder";
+import DeleteFolder from "./DeleteFolder";
 
 export default function Folder({datas,setDatas,setTaskToEdit}) {
 
