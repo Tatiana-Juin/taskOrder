@@ -3,6 +3,7 @@ import Folder from '../components/Folder'
 import Todos from '../pages/Todos'
 import { useState } from 'react'
 import data from '../data/data'
+import Home from '../pages/Home'
 export default function AppRoute() {
 
   // POUR QUE LES DONNES SOIT DYNAMIQUE 
@@ -12,7 +13,7 @@ export default function AppRoute() {
     <>
         <Routes>
           {/* chemlin principale  */}
-            <Route path="/" element={<Folder  datas={datas} setDatas={setDatas}  />} />
+            <Route path="/" element={<Home  datas={datas} setDatas={setDatas}  />} />
 
             {/* ROUTE DYNAMIQUE  */}
             <Route path="folder/:folderId" element={<Todos datas={datas} setDatas={setDatas} />} />
