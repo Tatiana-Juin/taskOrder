@@ -7,13 +7,14 @@ export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskTo
     // reformate pour input date;
     const [updateDateTodo,setUpdateDateTodo] = useState(new Date(taskToEdit.dateTodo.split("/").reverse().join("-")).toISOString().split("T")[0]) 
 
-    
-   
     // FONCTION POUR MODIFIER UNE TACHE 
     const handleUpdateTask = (idFolder,idTask)=>{
         // Reformer la date en version anglais
         const reformattedDate = updateDateTodo.split("-").reverse().join("/");
-
+        // if( new Date(newDate) <  new Date() ){
+        //     setErrorMessage("La date ne peut pas etre inferieur a celle d'aujourd'hui ")
+        //     return;
+        // }
         // datas recupere les dossier et verifie si on les meme id si c'est pas le cas il retourne folder les dossier 
         const newData =datas.map(folder=>{
             if(folder.idFolder !== idFolder ){

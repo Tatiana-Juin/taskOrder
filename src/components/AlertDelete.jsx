@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function AlertDelete({title,message,onCancel,onConfirm}) {
   return (
      <div className="fixed inset-0 bg-black/50 flex items-center justify-center">

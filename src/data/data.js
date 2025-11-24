@@ -6,6 +6,13 @@
                
                 
         ]}, 
+        {idFolder:'f-2', nameFolder:'2 dossier', 
+            todos : [ 
+                {idTodo:1, text:"2 tâche",  dateTodo: new Date().toLocaleDateString(),completed:false},
+                {idTodo:2, text:" 2 Deuxieme tâche",  dateTodo: new Date().toLocaleDateString(),completed:false},
+               
+                
+        ]}, 
     ];
 
 export default data

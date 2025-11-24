@@ -1,9 +1,10 @@
 import{Routes,Route} from 'react-router-dom'
-import Folder from '../components/Folder'
+// import Folder from '../components/Folder'
 import Todos from '../pages/Todos'
 import { useState } from 'react'
 import data from '../data/data'
 import Home from '../pages/Home'
+import ShowTodo from '../components/ShowTodo'
 export default function AppRoute() {
 
   // POUR QUE LES DONNES SOIT DYNAMIQUE 
