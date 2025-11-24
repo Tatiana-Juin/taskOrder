@@ -119,11 +119,14 @@ export default function Todos({datas,setDatas}) {
 
               
           //  </div>
+          <div key={todo.idTodo} className="flex items-center justify-between  border border-gray-200 rounded-xl p-4 my-3  ">
           <ShowTodo
               todo={todo}
               setTaskToEdit={setTaskToEdit}
               setTaskToDelete={setTaskToDelete}
           />  
+
+          </div>
           ))
         ):(
           <p className="text-center text-red-500 mt-4">Dossier non trouver</p>

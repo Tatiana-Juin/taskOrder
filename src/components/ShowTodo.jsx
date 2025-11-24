@@ -2,7 +2,7 @@
 export default function ShowTodo({todo,setTaskToEdit,setTaskToDelete}) {
   return (
     <>
-        <div key={todo.idTodo} className="flex items-center justify-between  border border-gray-200 rounded-xl p-4 my-3  ">
+      
               {/* affiche les elements */}
               <div className="flex items-center gap-3">
                   <input type="checkbox" className="w-5 h-5 cursor-pointer accent-green-500"/>
@@ -16,7 +16,7 @@ export default function ShowTodo({todo,setTaskToEdit,setTaskToDelete}) {
               </div>
 
               
-           </div>
+           
     </>
   )
 }
