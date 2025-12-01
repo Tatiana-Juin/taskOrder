@@ -1,5 +1,5 @@
 import AlertDelete from "./AlertDelete";
-export default function DeleteTask({folderId,datas,setDatas,taskToDelete,setTaskToDelete}) {
+export default function DeleteTask({folderId,datas,setDatas,taskToDelete,setTaskToDelete,setFolderIdToDelete}) {
 
 // On utilise useEffect pour que ca se declence en automatique quand taskToDelete recupere todo
 const handleDeleteTask = () =>{
@@ -22,6 +22,8 @@ const handleDeleteTask = () =>{
     // Met a jours les valeurs dynamique 
     setDatas(newData);
     setTaskToDelete(false);
+    
+    setFolderIdToDelete && setFolderIdToDelete(null);
 
 }
 

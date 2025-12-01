@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskToEdit}) {
+export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskToEdit,setFolderIdToEdit}) {
     // RECUPERE  LE TEXTE DE MANIERE DYNAMIQUE 
     const [updateText, setUpdateText] = useState(taskToEdit.text);
     // reformate pour input date;
@@ -11,10 +11,7 @@ export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskTo
     const handleUpdateTask = (idFolder,idTask)=>{
         // Reformer la date en version anglais
         const reformattedDate = updateDateTodo.split("-").reverse().join("/");
-        // if( new Date(newDate) <  new Date() ){
-        //     setErrorMessage("La date ne peut pas etre inferieur a celle d'aujourd'hui ")
-        //     return;
-        // }
+        
         // datas recupere les dossier et verifie si on les meme id si c'est pas le cas il retourne folder les dossier 
         const newData =datas.map(folder=>{
             if(folder.idFolder !== idFolder ){
@@ -47,6 +44,9 @@ export default function UpdateTask({folderId,datas,setDatas,taskToEdit,setTaskTo
         setDatas(newData)
         // Initialise taskToEdit pour qu'il disparaisse 
         setTaskToEdit(false)
+        
+        // quand j'appelle ce composant UpdateTask et qu'il manque un props cela ne plante pas systematiquement le code ca met le code en undefinted mais c peut faire crasher le code c'est pour ca qu'on doit mettre la ligne ci-dessous 
+        setFolderIdToEdit && setFolderIdToEdit(null);
         
     }
 

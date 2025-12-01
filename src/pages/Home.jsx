@@ -3,7 +3,8 @@ import Folder from '../components/Folder'
 import ShowTodo from '../components/ShowTodo';
 import Todos from './Todos';
 import { useState } from 'react';
-// import { data } from 'react-router-dom'
+import UpdateTask from '../components/UpdateTask';
+import DeleteTask from '../components/DeleteTask';
 
 export default function Home({datas,setDatas}) {
   // Pour modifier une tache 
@@ -11,7 +12,7 @@ export default function Home({datas,setDatas}) {
 
     // POUR RECUPERER LES INFORMATION POUR SUPPRIMER UNE TACHES
     const [taskToDelete,setTaskToDelete] = useState(false);
-    // USE STATE QUI VONT M'AIDER POUR METTRE A JOUR LES ETAT
+    // POUR STOCKER LES ID DU DOSSIER LOSR DE LA MODIFICATION ET DE LA SUPPRESSION
     const [folderIdToEdit, setFolderIdToEdit] = useState(null);
     const [folderIdToDelete, setFolderIdToDelete] = useState(null);
     
@@ -40,6 +41,30 @@ export default function Home({datas,setDatas}) {
         <div className='flex justify-center'>
             <h2 className='text-center text-lg'>Toutes les tâches</h2>
         </div>
+
+        {/* CONDITION POUR LA MODIFICATION DE LA TACHE ON DOIT RECUPERER ID DE LA TACHE ET DU DOSSIER   */}
+        {taskToEdit && folderIdToEdit &&(
+          <UpdateTask
+                        folderId={folderIdToEdit}
+                        datas={datas}
+                        setDatas={setDatas}
+                        taskToEdit={taskToEdit}
+                        setTaskToEdit={setTaskToEdit}
+                        setFolderIdToEdit={setFolderIdToEdit}
+                />
+        )}
+
+        {/* CONDITION POUR LA SUPPRESSION DE LA TACHE ON DOIT RECUPERER ID DE LA TACHE ET DU DOSSIER   */}
+        {taskToDelete && folderIdToDelete &&(
+          <DeleteTask 
+                      folderId={folderIdToDelete}
+                      datas={datas}
+                      setDatas={setDatas}
+                      taskToDelete={taskToDelete}
+                      setTaskToDelete={setTaskToDelete}
+                      setFolderIdToDelete={setFolderIdToDelete}
+                    />
+        )}
 
        {datas.map((folder) =>(
         <React.Fragment key={folder.idFolder}>
