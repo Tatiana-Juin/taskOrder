@@ -1,6 +1,7 @@
 import React from 'react'
 import Folder from '../components/Folder'
 import ShowTodo from '../components/ShowTodo';
+import Todos from './Todos';
 import { useState } from 'react';
 // import { data } from 'react-router-dom'
 
@@ -10,8 +11,25 @@ export default function Home({datas,setDatas}) {
 
     // POUR RECUPERER LES INFORMATION POUR SUPPRIMER UNE TACHES
     const [taskToDelete,setTaskToDelete] = useState(false);
+    // USE STATE QUI VONT M'AIDER POUR METTRE A JOUR LES ETAT
+    const [folderIdToEdit, setFolderIdToEdit] = useState(null);
+    const [folderIdToDelete, setFolderIdToDelete] = useState(null);
+    
+    // Pour mettre a jour la tache et le dossier 
+    const handleEditClick = (task, folderId) => {
+      setTaskToEdit(task);     // Met à jour l'état 1 (la tâche)
+      setFolderIdToEdit(folderId); // Met à jour l'état 2 (le dossier parent)
+    };
+
+    // POUR SUPPRIMER UNE TACHE ET METTRE A JOUR LE DOSSIER 
+    const handleDeleteClick = (task, folderId) => {
+      setTaskToDelete(task);
+      setFolderIdToDelete(folderId);
+    };
   
   return (
+
+    
     
     <div>
         <Folder 
@@ -27,33 +45,20 @@ export default function Home({datas,setDatas}) {
         <React.Fragment key={folder.idFolder}>
           <p  className='text-center font-bold'> {folder.nameFolder}  </p>
           {folder.todos.map( (todo) =>(
-          //   <div key={todo.idTodo} className="flex items-center justify-between  border border-gray-200 rounded-xl p-4 my-3  ">
-          //     {/* affiche les elements */}
-          //     <div className="flex items-center gap-3">
-          //         <input type="checkbox" className="w-5 h-5 cursor-pointer accent-green-500"/>
-          //         <p className="text-gray-800 text-lg">{todo.text}</p>
-          //         <p className="text-gray-800 text-lg" >{todo.dateTodo}</p>
-          //     </div>
-              
-          //     <div className="flex gap-3">
-          //         <button className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-blue-100 hover:bg-blue-200 transition-all duration-150" >Modifier</button>
-          //         <button  className="text-black px-5 py-2 rounded-xl shadow-md cursor-pointer bg-red-100 hover:bg-red-200 transition-all duration-150" >Supprimer</button>
-          //     </div>
-
-              
-          //  </div>
+         
 
           <div key={todo.idTodo} className="flex items-center justify-between  border border-gray-200 rounded-xl p-4 my-3  ">
-
-          <ShowTodo
-                todo={todo}
-                setTaskToEdit={setTaskToEdit}
-                setTaskToDelete={setTaskToDelete}
-            /> 
+            
+            <ShowTodo
+                  todo={todo}
+                  setTaskToEdit={(task)=>handleEditClick(task,folder.idFolder)}
+                  setTaskToDelete={(task )=> handleDeleteClick(task,folder.idFolder) }
+              /> 
             </div>
           ) )}
-        </React.Fragment>
+          </React.Fragment>
        ))}
+       {/* <Todos datas={datas} setDatas={setDatas} /> */}
     </div>
     
   )
