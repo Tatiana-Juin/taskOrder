@@ -31,23 +31,33 @@ export default function UpdateFolder({folderId,datas,setDatas,folderToEdit,setFo
   }
 
   return (
-    <div>
+    <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-sm">
        
-      <input 
+       <h3 className="text-xl font-bold text-slate-800 mb-6 text-center">Renommer le dossier</h3>
+        {/* INPUT POUR MODIFIER LE DOSSIER  */}
+       <input 
         type="text" 
-        className="border border-black"
+        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-indigo-500 transition-all font-medium mb-2"
         value={updateTextFolder}
         onChange={(e) => setUpdateFolderText(e.target.value)}
+        autoFocus
       />
-        <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=> handleUpdateFolder()}>
-            Modifier
-        </button>
-        <button className="m-4 text-black px-5 py-3 rounded-xl shadow-md cursor-pointer" onClick={()=>{setFolderToEdit(false),setErrorMessage("")}}>Annuler</button>
-
+        {/* MESSAGE ERREUR  */}
         {errorMessage && (
-          <p className="text-red-500 mt-2 font-medium">{errorMessage}</p>
+          <p className="text-red-500 text-sm font-medium text-center mb-4 bg-red-50 p-2 rounded-lg">{errorMessage}</p>
         )}
+        {/* POUR VALIDE ROU ANNULER LA MODIFICATION DU DOSSIER  */}
+        <div className="flex flex-col gap-3 mt-4">
+             <button className="w-full bg-indigo-600 text-white px-5 py-3 rounded-xl shadow-md hover:bg-indigo-700 font-bold transition-all" onClick={()=> handleUpdateFolder()}>
+                Valider la modification
+            </button>
+            <button className="w-full text-slate-500 px-5 py-3 rounded-xl hover:bg-slate-50 font-bold transition-colors" onClick={()=>{setFolderToEdit(false),setErrorMessage("")}}>
+                Annuler
+            </button>
+        </div>
     </div>
+  </div>
     
     
   )

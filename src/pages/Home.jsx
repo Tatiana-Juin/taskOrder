@@ -9,7 +9,6 @@ import DeleteTask from '../components/DeleteTask';
 export default function Home({datas,setDatas}) {
   // Pour modifier une tache 
     const [taskToEdit,setTaskToEdit] = useState(false);
-
     // POUR RECUPERER LES INFORMATION POUR SUPPRIMER UNE TACHES
     const [taskToDelete,setTaskToDelete] = useState(false);
     // POUR STOCKER LES ID DU DOSSIER LOSR DE LA MODIFICATION ET DE LA SUPPRESSION
